@@ -9,8 +9,8 @@ def subtract(*args):
     #for each argument after the first arg 
         #subtract that number from the result and store it as the new result 
     #return result
-    result = arg[0]
-    for num in arg[1:]:
+    result = args[0]
+    for num in args[1:]:
         result = result - num
 
     return result 
@@ -22,7 +22,7 @@ def mult(*args):
 
 def div(*args): 
     result = args[0]
-    for num in arg[1:]: 
+    for num in args[1:]: 
         if num != 0:
             result = result/num            
         else: print("Error")
