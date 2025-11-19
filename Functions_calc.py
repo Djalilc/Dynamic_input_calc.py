@@ -1,7 +1,9 @@
 import math
+
 def add(*args): 
     """Adds two numbers"""
     return sum(args)
+
 def subtract(*args):
     """Subtracts two numbers"""
     print("Reached subtract function")
@@ -25,30 +27,33 @@ def div(*args):
     for num in args[1:]: 
         if num != 0:
             result = result/num      
-            return result      
         else: print("Error")
+    return result      
+
 
 #interface
-operation = input(f"which operation would you like to input\n insert operation:")
+operation = input("which operation would you like to input\ninsert operation:")
 numbers = input("What numbers would you like to execute the operation on?  insert number or list of numbers:")
 
 #For numbers, it is being stored as a string but it needs to be passed as the argument for the functions which require list "*args" meaning i have to create another variable to split the string into a list
-split_numbers = numbers.split() 
-
+split_numbers = numbers.split() #note: important to convert the list of strings to alist of ints
+num_list = [float(x) for x in split_numbers]
 op = operation.strip().lower()
 if op == "divide": 
-    print(div(*split_numbers))
-elif op == "multiply": 
-    print(mult(*split_numbers)) 
-elif op == "divide": 
-    print(mult(*split_numbers)) 
-elif op == "add": 
-    print(add(*split_numbers))
+    print(div(*num_list))
+elif op == "multiply":
+    print(mult(*num_list))
+elif op == "times":
+    print(mult(*num_list)) 
+elif op == "add":
+    print(add(*num_list))
 elif op == "addition": 
-    print(add(*split_numbers))
+    print(add(*num_list))
 elif op == "subtract": 
-    print(subtract(*split_numbers))
+    print(subtract(*num_list))
+elif op == "minus": 
+    print(subtract(*num_list))
+else: 
+    print("please")
 
-#debugging: 
-print(numbers) 
-print(type(numbers))
+
